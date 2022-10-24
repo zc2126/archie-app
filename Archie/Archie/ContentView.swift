@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+var options = ["McDonalds","Wendys","fresh&co","Chipotle","Dig","Shake Shack","Pelicana Chicken"]
 var out = ""
 struct ContentView: View {
     @State private var go = false
@@ -15,7 +16,7 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             Button("Go") {
                 go.toggle()
-                out = "McDonalds"
+                out = options.randomElement()!
             }
             if go {
                 Text(out)
