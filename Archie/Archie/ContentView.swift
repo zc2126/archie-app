@@ -45,11 +45,17 @@ struct Restaurant: Decodable {
                 //[String: Any]
                 let _ = print(">>>>", json, #line,"<<<<")
                 
-                /*
-                if let names = json(["name"]) as? [String] {
-                    let _ = print(names)
+                if let names = json["businesses"] as? [NSDictionary] {
+                    let _ = print("interlude")
+                    for r in names {
+                        let ro = Restaurant(name: r["name"] as! String)
+                            restaurants.append(ro)
+                    }
+                    //let _ = print(names[0]["name"] as Any)
+                    //let _ = print("indeed")
+                    //let _ = print(restaurants)
                 }
-                */
+                
                 //let jsonData = json.data(using: .utf8)!
                 //let jsonString = String(data: json, encoding: .utf8)
                 /*
@@ -136,7 +142,8 @@ struct ContentView: View {
                 //.frame(width: geometry.size.height/2, height: geometry.size.height/3, alignment: .center)
                 Button("Go") {
                     go.toggle()
-                    out = options.randomElement()!
+                    //out = options.randomElement()!
+                    out = restaurants.randomElement()!.name
                 }.frame(width: 200, height: 100, alignment: .center)
                 if go {
                     Text(out).frame(width: 200, height: 100, alignment: .bottom)
