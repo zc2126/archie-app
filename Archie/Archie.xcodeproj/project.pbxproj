@@ -14,6 +14,7 @@
 		E3DE77B2290659780073805F /* ArchieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77B1290659780073805F /* ArchieTests.swift */; };
 		E3DE77BC290659780073805F /* ArchieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77BB290659780073805F /* ArchieUITests.swift */; };
 		E3DE77BE290659780073805F /* ArchieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77BD290659780073805F /* ArchieUITestsLaunchTests.swift */; };
+		E3DE77CD290761010073805F /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77CC290761010073805F /* DeviceLocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		E3DE77B7290659780073805F /* ArchieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArchieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DE77BB290659780073805F /* ArchieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchieUITests.swift; sourceTree = "<group>"; };
 		E3DE77BD290659780073805F /* ArchieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3DE77CC290761010073805F /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				E3DE779F290659730073805F /* ArchieApp.swift */,
 				E3DE77A1290659730073805F /* ContentView.swift */,
+				E3DE77CC290761010073805F /* DeviceLocationService.swift */,
 				E3DE77A3290659770073805F /* Assets.xcassets */,
 				E3DE77A8290659770073805F /* Archie.entitlements */,
 				E3DE77A5290659770073805F /* Preview Content */,
@@ -261,6 +264,7 @@
 			files = (
 				E3DE77A2290659730073805F /* ContentView.swift in Sources */,
 				E3DE77A0290659730073805F /* ArchieApp.swift in Sources */,
+				E3DE77CD290761010073805F /* DeviceLocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
