@@ -82,13 +82,15 @@ struct ContentView: View {
         let _ = print(lon)
         let _ = print(lat)
          */
-        VStack(alignment: .leading) {
+        ZStack(alignment: .top) {
             Text("Let Archie Decide")
                 .padding().frame(width: 200, height: 100, alignment: .top)
-            
+        }
+        ZStack(alignment: .center) {
             TextField("Any criteria?", text: $t)
                 //.frame(width: geometry.size.height/2, height: geometry.size.height/3, alignment: .center)
-             
+        }
+        ZStack(alignment: .center) {
                 Button("Go") {
                     go.toggle()
                     //out = restaurants.randomElement()!.name
@@ -107,10 +109,12 @@ struct ContentView: View {
                      
                    out = restaurants.randomElement()!.name
                 }.frame(width: 200, height: 100, alignment: .center)
+        }
+        ZStack(alignment: .bottom) {
                 if go {
                     Text(out).frame(width: 200, height: 100, alignment: .bottom)
                 }
-        }.frame(width: 400, height: 600, alignment: .center)
+        }.frame(width: 400, height: 400, alignment: .center)
     }
 }
 
