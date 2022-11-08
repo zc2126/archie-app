@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import Foundation
+import Combine
 
 var options = ["McDonalds","Wendys","fresh&co","Chipotle","Dig","Shake Shack","Pelicana Chicken"]
 var out = ""
@@ -77,6 +78,11 @@ let lat = lo?.coordinate.latitude
  */
 
 struct ContentView: View {
+    @StateObject var deviceLocationService = DeviceLocationService.shared
+
+    @State var tokens: Set<AnyCancellable> = []
+    @State var coordinates: (lat: Double, lon: Double) = (0, 0)
+    
     @State private var t = ""
     @State private var go = false
     let m = api.getRest()
@@ -107,9 +113,38 @@ struct ContentView: View {
         }
         ZStack(alignment: .bottom) {
                 if go {
-                    Text(out).frame(width: 200, height: 100, alignment: .bottom)
+                    Text(out).frame(width: 200, height: 300, alignment: .topLeading)
+                    Text("Latitude: \(coordinates.lat)")
+                        .font(.largeTitle).frame(width: 200, height: 200, alignment: .topLeading)
+                    Text("Longitude: \(coordinates.lon)")
+                        .font(.largeTitle).frame(width: 200, height: 100, alignment: .topLeading)
                 }
+                }.onAppear {
+                    observeCoordinateUpdates()
+                    observeDeniedLocationAccess()
+                    deviceLocationService.requestLocationUpdates()
+                
         }.frame(width: 400, height: 400, alignment: .center)
+    }
+    
+    func observeCoordinateUpdates() {
+        deviceLocationService.coordinatesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                print("Handle \(completion) for error and finished subscription.")
+            } receiveValue: { coordinates in
+                self.coordinates = (coordinates.latitude, coordinates.longitude)
+            }
+            .store(in: &tokens)
+    }
+
+    func observeDeniedLocationAccess() {
+        deviceLocationService.deniedLocationAccessPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {
+                print("Handle access denied event, possibly with an alert.")
+            }
+            .store(in: &tokens)
     }
 }
 
@@ -118,3 +153,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
