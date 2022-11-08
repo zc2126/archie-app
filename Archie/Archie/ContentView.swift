@@ -13,6 +13,8 @@ import Combine
 var options = ["McDonalds","Wendys","fresh&co","Chipotle","Dig","Shake Shack","Pelicana Chicken"]
 var out = ""
 var m = DeviceLocationService()
+let callLock = NSCondition()
+var callComplete = false
 
 struct Restaurant: Decodable {
     enum Category: String, Decodable {
@@ -29,12 +31,12 @@ struct YelpAPI {
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     
-    mutating func setTerm(t: String) -> Void {
+    mutating func setTerm(t: String, lat: String, lon: String) -> Void {
         if t != "" {
             let underscored_str = t.replacingOccurrences(of: " ", with: "_")
-            domainURLString = "https://api.yelp.com/v3/businesses/search?location=Greenwich_Village&categories=restaurants&open_now=true&term=\(underscored_str)"
+            domainURLString = "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(lon)&radius=8000&categories=restaurants&open_now=true&term=\(underscored_str)"
         } else {
-            domainURLString = "https://api.yelp.com/v3/businesses/search?location=Greenwich_Village&categories=restaurants&open_now=true"
+            domainURLString = "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(lon)&radius=8000&categories=restaurants&open_now=true"
         }
         self.getRest() // get new set of restaurants based on term
     }
@@ -64,6 +66,8 @@ struct YelpAPI {
             } catch {
                 let _ = print("caught")
             }
+            callComplete = true
+            callLock.broadcast() //wake up waiting threads
         }.resume()
     }
 }
@@ -87,44 +91,54 @@ struct ContentView: View {
     @State private var go = false
     let m = api.getRest()
     var body: some View {
-        /*
-        let _ = print("here")
-        let _ = print(lon)
-        let _ = print(lat)
-         */
-        ZStack(alignment: .top) {
-            Text("Let Archie Decide")
-                .padding().frame(width: 200, height: 100, alignment: .top)
-        }
-        ZStack(alignment: .center) {
-            TextField("Any criteria?", text: $t)
-                //.frame(width: geometry.size.height/2, height: geometry.size.height/3, alignment: .center)
-        }
-        ZStack(alignment: .center) {
-                Button("Go") {
-                    go.toggle()
-                    api.setTerm(t: t);
-                    if restaurants.count == 0 {
-                        out = "No results"
-                    } else {
-                        out = restaurants.randomElement()!.name
+        VStack {
+            ZStack(alignment: .top) {
+                Text("Let Archie Decide")
+                    .padding().frame(width: 300, height: 100, alignment: .center).font(.custom("SignPainter",size: 34)).foregroundColor(.red)
+            }
+            ZStack(alignment: .center) {
+                Text("Any preferences?").foregroundColor(.black).frame(width: 200, height: 25, alignment: .trailing).font(.custom("Arial",size: 15))
+            }
+            ZStack(alignment: .center) {
+                TextField("", text: $t).textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 200, height: 25, alignment: .center).foregroundColor(.black)
+            }.frame(width: 100, height: 25, alignment: .center)
+            ZStack(alignment: .center) {
+                    Button("Go") {
+                        go.toggle()
+                        if(!go) {
+                            go = true
+                        }
+                        
+                        callComplete = false
+                        
+                        api.setTerm(t: t,lat: String(coordinates.lat),lon: String(coordinates.lon));
+                        
+                        while(!callComplete) {
+                            callLock.wait() //wait until call completes
+                        }
+                        
+                        if restaurants.count == 0 {
+                            out = "No results"
+                        } else {
+                            out = restaurants.randomElement()!.name
+                        }
+                    }.frame(width: 200, height: 100, alignment: .center)
+            }
+            ZStack(alignment: .bottom) {
+                    if go {
+                        Text(out).frame(width: 200, height: 300, alignment: .topLeading).foregroundColor(.black)
+                        Text("Latitude: \(coordinates.lat)")
+                            .font(.largeTitle).frame(width: 200, height: 200, alignment: .topLeading).foregroundColor(.black)
+                        Text("Longitude: \(coordinates.lon)")
+                            .font(.largeTitle).frame(width: 200, height: 100, alignment: .topLeading).foregroundColor(.black)
                     }
-                }.frame(width: 200, height: 100, alignment: .center)
-        }
-        ZStack(alignment: .bottom) {
-                if go {
-                    Text(out).frame(width: 200, height: 300, alignment: .topLeading)
-                    Text("Latitude: \(coordinates.lat)")
-                        .font(.largeTitle).frame(width: 200, height: 200, alignment: .topLeading)
-                    Text("Longitude: \(coordinates.lon)")
-                        .font(.largeTitle).frame(width: 200, height: 100, alignment: .topLeading)
-                }
-                }.onAppear {
-                    observeCoordinateUpdates()
-                    observeDeniedLocationAccess()
-                    deviceLocationService.requestLocationUpdates()
-                
-        }.frame(width: 400, height: 400, alignment: .center)
+                    }.onAppear {
+                        observeCoordinateUpdates()
+                        observeDeniedLocationAccess()
+                        deviceLocationService.requestLocationUpdates()
+                    
+            }.frame(width: 400, height: 400, alignment: .center)
+        }.background(Image("kiwi-pinball").resizable())
     }
     
     func observeCoordinateUpdates() {
