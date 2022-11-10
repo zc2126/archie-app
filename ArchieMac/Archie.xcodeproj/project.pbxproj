@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3DE77A0290659730073805F /* ArchieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE779F290659730073805F /* ArchieApp.swift */; };
+		E3DE77A2290659730073805F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77A1290659730073805F /* ContentView.swift */; };
+		E3DE77A4290659770073805F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3DE77A3290659770073805F /* Assets.xcassets */; };
+		E3DE77A7290659770073805F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3DE77A6290659770073805F /* Preview Assets.xcassets */; };
+		E3DE77B2290659780073805F /* ArchieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77B1290659780073805F /* ArchieTests.swift */; };
+		E3DE77BC290659780073805F /* ArchieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77BB290659780073805F /* ArchieUITests.swift */; };
+		E3DE77BE290659780073805F /* ArchieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77BD290659780073805F /* ArchieUITestsLaunchTests.swift */; };
+		E3DE77CD290761010073805F /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE77CC290761010073805F /* DeviceLocationService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E3DE77AE290659780073805F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3DE7794290659730073805F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3DE779B290659730073805F;
+			remoteInfo = Archie;
+		};
+		E3DE77B8290659780073805F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3DE7794290659730073805F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3DE779B290659730073805F;
+			remoteInfo = Archie;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E3DE779C290659730073805F /* Archie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Archie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3DE779F290659730073805F /* ArchieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchieApp.swift; sourceTree = "<group>"; };
+		E3DE77A1290659730073805F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E3DE77A3290659770073805F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3DE77A6290659770073805F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E3DE77A8290659770073805F /* Archie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Archie.entitlements; sourceTree = "<group>"; };
+		E3DE77AD290659780073805F /* ArchieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArchieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3DE77B1290659780073805F /* ArchieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchieTests.swift; sourceTree = "<group>"; };
+		E3DE77B7290659780073805F /* ArchieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArchieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3DE77BB290659780073805F /* ArchieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchieUITests.swift; sourceTree = "<group>"; };
+		E3DE77BD290659780073805F /* ArchieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3DE77CC290761010073805F /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3DE7799290659730073805F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3DE77AA290659780073805F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3DE77B4290659780073805F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E3DE7793290659730073805F = {
+			isa = PBXGroup;
+			children = (
+				E3DE779E290659730073805F /* Archie */,
+				E3DE77B0290659780073805F /* ArchieTests */,
+				E3DE77BA290659780073805F /* ArchieUITests */,
+				E3DE779D290659730073805F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E3DE779D290659730073805F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3DE779C290659730073805F /* Archie.app */,
+				E3DE77AD290659780073805F /* ArchieTests.xctest */,
+				E3DE77B7290659780073805F /* ArchieUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3DE779E290659730073805F /* Archie */ = {
+			isa = PBXGroup;
+			children = (
+				E3DE779F290659730073805F /* ArchieApp.swift */,
+				E3DE77A1290659730073805F /* ContentView.swift */,
+				E3DE77CC290761010073805F /* DeviceLocationService.swift */,
+				E3DE77A3290659770073805F /* Assets.xcassets */,
+				E3DE77A8290659770073805F /* Archie.entitlements */,
+				E3DE77A5290659770073805F /* Preview Content */,
+			);
+			path = Archie;
+			sourceTree = "<group>";
+		};
+		E3DE77A5290659770073805F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E3DE77A6290659770073805F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E3DE77B0290659780073805F /* ArchieTests */ = {
+			isa = PBXGroup;
+			children = (
+				E3DE77B1290659780073805F /* ArchieTests.swift */,
+			);
+			path = ArchieTests;
+			sourceTree = "<group>";
+		};
+		E3DE77BA290659780073805F /* ArchieUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E3DE77BB290659780073805F /* ArchieUITests.swift */,
+				E3DE77BD290659780073805F /* ArchieUITestsLaunchTests.swift */,
+			);
+			path = ArchieUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3DE779B290659730073805F /* Archie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3DE77C1290659780073805F /* Build configuration list for PBXNativeTarget "Archie" */;
+			buildPhases = (
+				E3DE7798290659730073805F /* Sources */,
+				E3DE7799290659730073805F /* Frameworks */,
+				E3DE779A290659730073805F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Archie;
+			productName = Archie;
+			productReference = E3DE779C290659730073805F /* Archie.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E3DE77AC290659780073805F /* ArchieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3DE77C4290659780073805F /* Build configuration list for PBXNativeTarget "ArchieTests" */;
+			buildPhases = (
+				E3DE77A9290659780073805F /* Sources */,
+				E3DE77AA290659780073805F /* Frameworks */,
+				E3DE77AB290659780073805F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3DE77AF290659780073805F /* PBXTargetDependency */,
+			);
+			name = ArchieTests;
+			productName = ArchieTests;
+			productReference = E3DE77AD290659780073805F /* ArchieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E3DE77B6290659780073805F /* ArchieUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3DE77C7290659780073805F /* Build configuration list for PBXNativeTarget "ArchieUITests" */;
+			buildPhases = (
+				E3DE77B3290659780073805F /* Sources */,
+				E3DE77B4290659780073805F /* Frameworks */,
+				E3DE77B5290659780073805F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3DE77B9290659780073805F /* PBXTargetDependency */,
+			);
+			name = ArchieUITests;
+			productName = ArchieUITests;
+			productReference = E3DE77B7290659780073805F /* ArchieUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3DE7794290659730073805F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					E3DE779B290659730073805F = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					E3DE77AC290659780073805F = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = E3DE779B290659730073805F;
+					};
+					E3DE77B6290659780073805F = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = E3DE779B290659730073805F;
+					};
+				};
+			};
+			buildConfigurationList = E3DE7797290659730073805F /* Build configuration list for PBXProject "Archie" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E3DE7793290659730073805F;
+			productRefGroup = E3DE779D290659730073805F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3DE779B290659730073805F /* Archie */,
+				E3DE77AC290659780073805F /* ArchieTests */,
+				E3DE77B6290659780073805F /* ArchieUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3DE779A290659730073805F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3DE77A7290659770073805F /* Preview Assets.xcassets in Resources */,
+				E3DE77A4290659770073805F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3DE77AB290659780073805F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3DE77B5290659780073805F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3DE7798290659730073805F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3DE77A2290659730073805F /* ContentView.swift in Sources */,
+				E3DE77A0290659730073805F /* ArchieApp.swift in Sources */,
+				E3DE77CD290761010073805F /* DeviceLocationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3DE77A9290659780073805F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3DE77B2290659780073805F /* ArchieTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3DE77B3290659780073805F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3DE77BE290659780073805F /* ArchieUITestsLaunchTests.swift in Sources */,
+				E3DE77BC290659780073805F /* ArchieUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E3DE77AF290659780073805F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3DE779B290659730073805F /* Archie */;
+			targetProxy = E3DE77AE290659780073805F /* PBXContainerItemProxy */;
+		};
+		E3DE77B9290659780073805F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3DE779B290659730073805F /* Archie */;
+			targetProxy = E3DE77B8290659780073805F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E3DE77BF290659780073805F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E3DE77C0290659780073805F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		E3DE77C2290659780073805F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Archie/Archie.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Archie/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ask.Archie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E3DE77C3290659780073805F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Archie/Archie.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Archie/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ask.Archie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E3DE77C5290659780073805F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ask.ArchieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Archie.app/Contents/MacOS/Archie";
+			};
+			name = Debug;
+		};
+		E3DE77C6290659780073805F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ask.ArchieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Archie.app/Contents/MacOS/Archie";
+			};
+			name = Release;
+		};
+		E3DE77C8290659780073805F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ask.ArchieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Archie;
+			};
+			name = Debug;
+		};
+		E3DE77C9290659780073805F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ask.ArchieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Archie;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3DE7797290659730073805F /* Build configuration list for PBXProject "Archie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3DE77BF290659780073805F /* Debug */,
+				E3DE77C0290659780073805F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3DE77C1290659780073805F /* Build configuration list for PBXNativeTarget "Archie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3DE77C2290659780073805F /* Debug */,
+				E3DE77C3290659780073805F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3DE77C4290659780073805F /* Build configuration list for PBXNativeTarget "ArchieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3DE77C5290659780073805F /* Debug */,
+				E3DE77C6290659780073805F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3DE77C7290659780073805F /* Build configuration list for PBXNativeTarget "ArchieUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3DE77C8290659780073805F /* Debug */,
+				E3DE77C9290659780073805F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E3DE7794290659730073805F /* Project object */;
+}

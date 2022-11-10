@@ -126,11 +126,11 @@ struct ContentView: View {
             }
             ZStack(alignment: .bottom) {
                     if go {
-                        Text(out).frame(width: 200, height: 300, alignment: .topLeading).foregroundColor(.black)
+                        Text(out).frame(width: 200, height: 300, alignment: .top).foregroundColor(.black)
                         Text("Latitude: \(coordinates.lat)")
-                            .font(.largeTitle).frame(width: 200, height: 200, alignment: .topLeading).foregroundColor(.black)
+                            .font(.largeTitle).frame(width: 200, height: 200, alignment: .top).foregroundColor(.black)
                         Text("Longitude: \(coordinates.lon)")
-                            .font(.largeTitle).frame(width: 200, height: 100, alignment: .topLeading).foregroundColor(.black)
+                            .font(.largeTitle).frame(width: 200, height: 100, alignment: .top).foregroundColor(.black)
                     }
                     }.onAppear {
                         observeCoordinateUpdates()
@@ -138,7 +138,7 @@ struct ContentView: View {
                         deviceLocationService.requestLocationUpdates()
                     
             }.frame(width: 400, height: 400, alignment: .center)
-        }.background(Image("kiwi-pinball").resizable())
+        }.background(Image("vivid-blurred-colorful-wallpaper-background").resizable())
     }
     
     func observeCoordinateUpdates() {
