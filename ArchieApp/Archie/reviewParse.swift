@@ -64,4 +64,4 @@ func reviewRank(adjectives: [String]) -> Any{
 }
 
 let g = reviewTag(reviews: reviews)
-print(reviewRank(adjectives: g))
+print("REVIEW PARSE RESULTS: ", reviewRank(adjectives: g))
