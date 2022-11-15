@@ -10,7 +10,38 @@ import NaturalLanguage
 
 let reviews = ["Absolutely terrible service with horrible food", "Best food in existence", "I don't know what is happening", "Horrible experience, my dog literally died after I fed them them my chocolate pudding 0/10 just disgraceful"]
 
-func reviewTag(reviews: [String]) -> [String]{
+getReviews(id: String -> [String]) {
+    var reviewList = [String]()
+
+    guard let url = URL(string: "https://api.yelp.com/v3/businesses/\(id)/reviews") else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+
+            guard let data = data, error == nil else { return }
+
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                let _ = print(">>>>", json, #line,"<<<<")
+
+                if let reviews = json["businesses"] as? [NSDictionary] {
+                    
+                    // Cycle through each review and append only the text to a list of reviews
+                    for r in reviews {
+                        reviewList.append(r["text"] as! String)
+                    }
+                }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+            }
+        }
+        task.resume()
+
+        return reviewList
+}
+
+
+
+func reviewTag(reviews: [String]) -> [String] {
     var corpus = " "
 
     for review in reviews {
@@ -63,5 +94,8 @@ func reviewRank(adjectives: [String]) -> Any{
     //print(ranking[0].key, ranking[1].key, ranking[2].key)
 }
 
-let g = reviewTag(reviews: reviews)
-print("REVIEW PARSE RESULTS: ", reviewRank(adjectives: g))
+let parsedCorpus = reviewTag(reviews: reviews)
+let results = reviewRank(adjectives: parsedCorpus)
+
+//return results
+print("REVIEW PARSE RESULTS: ", results)
