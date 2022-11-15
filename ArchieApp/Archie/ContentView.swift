@@ -19,14 +19,21 @@ var m = DeviceLocationService()
 let callLock = NSCondition()
 var callComplete = false
 
+// JC: Effectively importing reviewParse?
+let reviewParse = reviewParse()
+// JC: New variables declared up here for clarity
+var reviews: String = ""
+var outReviews: String = ""
+
 struct Restaurant: Decodable {
     enum Category: String, Decodable {
         case swift, combine, debugging, xcode
     }
     var name: String
+    var id: String // JC: Added field to store restaurant's ID
 }
 
-var restaurants = [Restaurant]()
+var restaurants: [Restaurant] = [Restaurant]()
 
 struct YelpAPI {
     let apikey = "80aSnHnyHk_OeP8nV1soG9yi6vkMnprpZLNQ75M-wpAKqYgiwgpEXmSToC7MV7d9Wo_PD8pbYMHQ_tLR5lG0qejq8MTZwenFxGWQso6gaHOg3d4xE4gZaKJaCTZXY3Yx"
@@ -60,10 +67,13 @@ struct YelpAPI {
 
                 let _ = print(">>>>", json, #line,"<<<<")
 
+
+                // JC: I believe you're taking the JSON returned from the API call and appending only the names to a list of restaurant structs?
+                //     Gonna make it so that the ID field is included as well from the JSON
                 if let names = json["businesses"] as? [NSDictionary] {
                     for r in names {
-                        let ro = Restaurant(name: r["name"] as! String)
-                            restaurants.append(ro)
+                        let ro = Restaurant(name: r["name"] as! String, id:r["id"] as! String)
+                        restaurants.append(ro)
                     }
                 }
             } catch {
@@ -124,13 +134,24 @@ struct ContentView: View {
                         if restaurants.count == 0 {
                             out = "No results"
                         } else {
-                            out = restaurants.randomElement()!.name
+                            //out = restaurants.randomElement()!.name
+                            
+                            // JC: Generalizing random restaurant output to call upon an index
+                            var ranRestIndex = Int.random(in: 0 ..< restaurants.count)
+                            out = restaurants[ranRestIndex].name
+
+                            // JC: Using new variable to run and store results of reviewParse
+                            var reviews: String = ""
+                            reviews = reviewParse.getReviews(id: restaurants[ranRestIndex.id])
+                            let parsedRev = reviewParse.reviewTag(reviews: reviews)
+                            outReviews = reviewParse.revieRank(adjectives: parsedRev)
                         }
                     }.frame(width: 200, height: 100, alignment: .center)
             }
             ZStack(alignment: .bottom) {
                     if go {
                         Text(out).frame(width: 200, height: 300, alignment: .top).foregroundColor(.black)
+                        Text(outReviews).frame(width: 200, height: 300, alignment: .top).foregroundColor(.black) // JC: I think this should output the top adjectives?
                         Text("Latitude: \(coordinates.lat)")
                             .font(.largeTitle).frame(width: 200, height: 200, alignment: .top).foregroundColor(.black)
                         Text("Longitude: \(coordinates.lon)")
