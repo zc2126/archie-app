@@ -31,6 +31,8 @@ struct Restaurant: Decodable {
     }
     var name: String
     var id: String // JC: Added field to store restaurant's ID
+    var price: String
+    var rating: Float
 }
 
 var restaurants: [Restaurant] = [Restaurant]()
@@ -72,7 +74,7 @@ struct YelpAPI {
                 //     Gonna make it so that the ID field is included as well from the JSON
                 if let names = json["businesses"] as? [NSDictionary] {
                     for r in names {
-                        let ro = Restaurant(name: r["name"] as! String, id:r["id"] as! String)
+                        let ro = Restaurant(name: r["name"] as! String, id:r["id"] as! String, price:["price"] as! String, rating:["rating"] as! Float)
                         restaurants.append(ro)
                     }
                 }
@@ -145,6 +147,9 @@ struct ContentView: View {
                             reviews = reviewParse.getReviews(id: restaurants[ranRestIndex.id])
                             let parsedRev = reviewParse.reviewTag(reviews: reviews)
                             outReviews = reviewParse.revieRank(adjectives: parsedRev)
+
+                            // JC: Temp console output while UI is fixed
+                            print("TEMP CONSOLE OUTPUT: \(restaurants[ranRestIndex])")
                         }
                     }.frame(width: 200, height: 100, alignment: .center)
             }
